@@ -66,7 +66,8 @@ const signUp = async (req, res) => {
                 if (error) {
                     throw error
                 } 
-                return res.status(201).json({ results })
+                // return res.status(201).json({ results })
+                return res.status(201)
             })
         }
     } catch (error) {
