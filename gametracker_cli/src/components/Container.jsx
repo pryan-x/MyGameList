@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Routes from '../routes'
 import Header from './shared/Header'
 
+import '../css/Container.css'
+
 export default class Container extends Component {
   constructor(props) {
     super(props)

@@ -76,7 +76,7 @@ class Login extends Component {
 
     return (
       <>
-        <h3>Sign In</h3>
+        <h3>Login</h3>
         <form onSubmit={this.onLogin}>
         {/* <form onSubmit={(e) => this.onLogin(e)}> */}
           <p>Username</p>

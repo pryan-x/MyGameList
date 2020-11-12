@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../screens/Home'
 import Login from '../screens/Login'
 import SignUp from '../screens/SignUp.jsx'
-import SignOut from '../helpers/SignOut'
+import Logout from '../helpers/Logout'
 // import Tracks from '../screens/Tracks'
 // import MyTracks from '../screens/MyTracks'
 // import Track from '../screens/Track'
@@ -57,8 +57,8 @@ const Routes = ({
       }
     />
     <Route
-      exact path="/signout"
-      render={props => <SignOut {...props} clearUser={clearUser} user={user} />}
+      exact path="/logout"
+      render={props => <Logout {...props} clearUser={clearUser} user={user} />}
     />
   </Switch>
 

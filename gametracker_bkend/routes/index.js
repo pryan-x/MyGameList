@@ -2,6 +2,11 @@ const express = require('express')
 const router = express.Router()
 const userRoute = require('./api/user')
 
+// authorization function that contin ues to the request 
+// when JWT is authorized from header
+// const checkAuthorization = require('../helpers/authenticate')
+
+
 const auth = require('../controllers/auth')
 // const signUp = require('../controllers/auth/signUp')
 // const login = require('../controllers/auth/login')
