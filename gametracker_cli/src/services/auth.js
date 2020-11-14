@@ -3,6 +3,7 @@ import api from './apiConfig'
 export const loginUser = async credentials => {
     try {
       const resp = await api.post('/login', credentials)
+      console.log('Login finished: ', resp)
 
       localStorage.setItem('token', resp.data.token)
       // localStorage.setItem('user', resp.data.user)
@@ -25,6 +26,15 @@ export const loginUser = async credentials => {
       throw error
     }
   }
+
+export const authUser = async (type, credentials) => {
+  if (type === 'Sign Up') {
+    return signUpUser(credentials).then(() => loginUser(credentials))
+
+  } else {
+    return loginUser(credentials)
+  }
+}
 
 export const signOutUser = async user => {
 

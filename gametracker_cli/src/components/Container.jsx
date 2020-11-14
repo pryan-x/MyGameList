@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Routes from '../routes'
-import Header from './shared/Header'
+import Header from './nav/Header'
 
 import '../css/Container.css'
 
@@ -40,7 +40,9 @@ export default class Container extends Component {
 
   // addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
 
-  setUser = user => this.setState({ user })
+  setUser = user => {
+    console.log('yo')
+    this.setState({ user })}
 
   clearUser = () => {
     this.setState({ user: null })

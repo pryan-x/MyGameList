@@ -1,0 +1,197 @@
+.nav-top {
+    justify-content: space-between;
+    border-bottom: #e60012 1px;
+    border-style: solid;
+    height: 50px;
+    width: 100%;
+    padding: 5px 0;
+}
+
+/* TOP LEFT NAV including intro text + logo */
+/* in order by how they appear right -> left */
+.nav-top-left {
+    justify-content: space-between;
+    width: 100%;
+    /* min-width: 475px;
+    max-width: 600px; */
+    margin-left: 15px;
+    padding-left: min(30px, 1%);
+}
+
+.nav-title-logo-container {
+    justify-content: center;
+    /* padding-right: 10px; */
+    padding-right: min(30px, 1%);
+}
+.logo-placeholder {
+    height: 45px;
+    margin-right: 5px;
+}
+.title {
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 20pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+/* wrapper to seperate intro-text and searchbar to oppisite sides of nav */
+.nav-space-between-wrapper {
+    justify-content: space-between;
+    width: 100%;
+}
+.nav-intro-text-container {
+    justify-content: center;
+    /* change min-width if changing intro-text font settings */
+    /* to prevent word wrap */
+    min-width:200px;
+    padding-left: 8px;
+}
+.nav-intro-text-left {
+    margin-right: 10px;
+}
+.nav-intro-text {
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 12pt;
+}
+/* SEARCHBAR */
+.nav-search-container {
+    justify-content: space-between;
+    border: #484848 1px solid;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 500px;
+    /* margin: 0 15px; */
+    margin-left: 15px;
+}
+.nav-search-input {
+    border: unset;
+    width: 100%;
+}
+.nav-search-icon-wrapper {
+    background-color: #fe837d;
+    border-radius: 2px;
+    border: unset;
+    height: 25px;
+    margin: unset;
+    padding: unset;
+    cursor: pointer;
+}
+.nav-search-icon {
+    height: 20px;
+    padding: 0px 6px 0 6px;
+}
+
+/* TOP RIGHT NAV AUTH */
+.nav-top-right {
+    /* justify-content: space-between;
+    width: 60%;
+    max-width: 1200px; */
+    padding-right: min(20px, .5%);
+    padding-left: min(30px, 2%);
+    /* padding-left: 15px; */
+}
+
+/* PROFILE DROPDOWN TOGGLE WITH PFP AND USERNAME */
+.nav-user-dropdown-button {
+    justify-content: flex-end;
+    /* width: 30%; */
+    min-width: min-content;
+    margin-right: 5px;
+    cursor: pointer;
+    position: relative;
+    
+}
+/* removes focus line for onBlur and tabIndex */
+.nav-user-dropdown-button:focus {
+    outline: 0 none;
+}
+.nav-pfp-PLACEHOLDER {
+    background-color: #fe837d;
+    border-radius: 3px;
+    height: 50px;
+    width: 50px;
+    margin-right: 8px;
+}
+.nav-username {
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 15pt;
+}
+.nav-caret {
+    padding: 0px 2px 0 2px
+}
+/* dropdown container */
+.nav-user-dropdown {
+    background-color: #fff;
+    border: #e60012 2px solid;
+    /* dropdown child adds extra pixel to bottom */
+    border-bottom: #e60012 1px solid;
+    border-radius: 1px 1px 3px 3px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.3);
+    top: 55px;
+    z-index: 100;
+    right: 0;
+    position: absolute;
+}
+/* selects all dropdown container children */
+.nav-user-dropdown > * {
+    border-bottom: #e60012 1px solid;
+    width: 250px;
+    padding: 8px 12px;
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: .5px;
+}
+/* logout container */
+.nav-user-dropdown li:last-child {
+    background-color: #fe837d;    
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.logout-button {
+    justify-content: center;
+}
+.logout-text {
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+.logout-icon {
+    height: 33px;
+    margin-left: 10px;
+}
+
+/* UNAUTHENTICATED TOP RIGHT NAV */
+.unauth-right-nav {
+    height: 100%;
+    margin: 0 10px;
+    /* margin-right: 10px; */
+    padding-right: min(20px, 1%);
+    padding-left: min(30px, 1%);
+} 
+/* changes login */
+.unauth-nav-button.login{
+    margin-left: 0;
+}
+.unauth-nav-button {
+    justify-content: center;
+    border: #fe837d 2px solid;
+    border-radius: 2px;
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-left: 18px;
+    padding: 6px 0 7px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+.login {
+    /* border: #e60012 2px solid;
+    border-radius: 2px; */
+    /* color: #ff4050; */
+}
+.signup {
+    background-color: #fe837d;
+    color: white
+}

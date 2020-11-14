@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import Home from '../screens/Home'
-import Login from '../screens/Login'
-import SignUp from '../screens/SignUp.jsx'
+import Home from '../components/screens/Home'
+
 import Logout from '../helpers/Logout'
+import Auth from '../components/screens/Auth'
 // import Tracks from '../screens/Tracks'
 // import MyTracks from '../screens/MyTracks'
 // import Track from '../screens/Track'
@@ -38,7 +38,7 @@ const Routes = ({
         if (user) {
           return <Redirect to="/"/>
         } else {
-          return <Login {...props} setUser={setUser} />
+          return <Auth {...props} authType='Login' setUser={setUser} />
         }
       // return <Login {...props} setUser={setUser} />
     }}
@@ -53,7 +53,7 @@ const Routes = ({
       path="/signup"
       render={props => user ?
         <Redirect to={{pathname: '/'}}/> :
-        <SignUp {...props} setUser={setUser}/>
+        <Auth {...props} authType='Sign Up' setUser={setUser}/>
       }
     />
     <Route
