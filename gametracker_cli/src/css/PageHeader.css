@@ -1,0 +1,16 @@
+.page-header {
+    padding: 5px 10px 8px 10px;
+    background-color: #ffd0cd;
+    /* background-color: #fe837d; */
+    border-bottom: #e60012 1px solid;
+}
+
+.page-name-text {
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Noto Sans HK', Verdana, Arial, sans-serif;
+    /* font-family: 'Fira Sans', Verdana, Arial, sans-serif; */
+    font-size: 16pt;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /* color: white; */
+}

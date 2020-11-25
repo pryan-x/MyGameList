@@ -9,6 +9,7 @@ export default class Container extends Component {
     super(props)
     this.state = {
       user: null,
+      pageHeader: null
     }
   }
 
@@ -42,7 +43,8 @@ export default class Container extends Component {
 
   setUser = user => {
     console.log('yo')
-    this.setState({ user })}
+    this.setState({ user })
+  }
 
   clearUser = () => {
     this.setState({ user: null })
@@ -54,10 +56,10 @@ export default class Container extends Component {
       <>
         {/* <Header user={user} {...this.props} setUser={this.setUser} /> */}
         <Header user={user} setUser={this.setUser} />
-        <main>
+        <main classHeader='page'>
           <Routes
             // getTracks={this.getTracks}
-            // tracks={this.state.tracks}
+            setPageHeader={this.setPageHeader}
             user={user}
             setUser={this.setUser}
             // addTrack={this.addTrack}

@@ -38,15 +38,15 @@ const login = async (req, res) => {
                     const token = jwt.sign(payload, TOKEN_KEY, { expiresIn: '1d' })
                     return res.status(201).json({ user: userData, token })
                 } else {
-                    return res.status(400).json({ errors: 'Invalid Username or Password' })
+                    return res.status(400).json({ errors: ['Invalid Username or Password'] })
                 }
             } else {
-                return res.status(400).json({ errors: 'Invalid Username or Password' })
+                return res.status(400).json({ errors: ['Invalid Username or Password'] })
             }
         })
         } catch (error) {
             console.log( `You made it to the ${login.name} controller, but there was an error:\n\t${error}`)
-            return res.status(400).json({ errors: 'Something went wrong' })
+            return res.status(400).json({ errors: ['Something went wrong'] })
         }
 }
 

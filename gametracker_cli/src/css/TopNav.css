@@ -12,16 +12,15 @@
 .nav-top-left {
     justify-content: space-between;
     width: 100%;
-    /* min-width: 475px;
-    max-width: 600px; */
     margin-left: 15px;
-    padding-left: min(30px, 1%);
+    /* padding-left: min(30px, 1%); */
 }
 
 .nav-title-logo-container {
     justify-content: center;
-    /* padding-right: 10px; */
-    padding-right: min(30px, 1%);
+    padding-left: 2%;
+    padding-right: 2%;
+    max-width: 350px;
 }
 .logo-placeholder {
     height: 45px;
@@ -44,6 +43,8 @@
     /* to prevent word wrap */
     min-width:200px;
     padding-left: 8px;
+    padding-right: 5px;
+    /* padding-right: 1%; */
 }
 .nav-intro-text-left {
     margin-right: 10px;
@@ -55,22 +56,23 @@
 /* SEARCHBAR */
 .nav-search-container {
     justify-content: space-between;
-    border: #484848 1px solid;
-    border-radius: 3px;
     width: 100%;
     max-width: 500px;
     /* margin: 0 15px; */
     margin-left: 15px;
 }
 .nav-search-input {
-    border: unset;
+    /* border: unset; */
+    height: 23px;
+    border: #ccc 1px solid;
+    border-radius: 3px 0 0 3px;
     width: 100%;
 }
 .nav-search-icon-wrapper {
     background-color: #fe837d;
-    border-radius: 2px;
+    border-radius: 0 2px 2px 0;
     border: unset;
-    height: 25px;
+    height: 27px;
     margin: unset;
     padding: unset;
     cursor: pointer;
@@ -82,11 +84,11 @@
 
 /* TOP RIGHT NAV AUTH */
 .nav-top-right {
-    /* justify-content: space-between;
-    width: 60%;
-    max-width: 1200px; */
-    padding-right: min(20px, .5%);
+    padding-right: min(20px, 1%);
+    /* padding-right: 1%; */
     padding-left: min(30px, 2%);
+    /* padding-left: 2%; */
+
     /* padding-left: 15px; */
 }
 
@@ -195,3 +197,13 @@
     background-color: #fe837d;
     color: white
 }
+.login:hover {
+    background-color: #f4f4f4;
+    color: #4b4b4b;
+    border: #ff5e55 2px solid;
+}
+.signup:hover {
+    background-color: #ffa9a4;
+    border: #ffa9a4 2px solid;
+}
+

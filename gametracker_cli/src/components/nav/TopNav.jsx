@@ -76,7 +76,7 @@ const authenticatedTopNav = (user, dropdownCheck, handleToggle, handleBlur) => (
                     transition: 'transform .95s cubic-bezier(.16,1.1,.59,.98)'
                 }}
             />
-
+            {/* dropdown */}
             {dropdownCheck && (
                 <ul className='nav-user-dropdown' >
                     <li>

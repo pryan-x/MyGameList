@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PageHeader from '../shared/PageHeader'
+
 
 class Home extends Component {
     constructor(props) {
@@ -16,11 +18,12 @@ render() {
         user.username = 'pepe'
     }
     return (
-        <div >
+        <>
+            <PageHeader pageHeader={`Welcome`} />
         <h1>
             Welcome {user.username}
         </h1>
-        </div>
+        </>
     )
     }
 }

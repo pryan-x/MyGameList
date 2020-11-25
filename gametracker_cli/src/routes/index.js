@@ -22,38 +22,34 @@ const Routes = ({
         <Home user={user} />
       }
     />
-    {/* <Route
-      path="/login"
-      render={props => 
-        user ?
-        <Redirect to="/"/> :
-        <Login {...props} setUser={setUser} />
-      }
-    /> */}
+
     <Route
       path="/login"
-      render={props => {
-        console.log(user)
-        console.log(user ? true : false)
-        if (user) {
-          return <Redirect to="/"/>
-        } else {
-          return <Auth {...props} authType='Login' setUser={setUser} />
-        }
-      // return <Login {...props} setUser={setUser} />
-    }}
+      // component remounts component to refresh new route and input values
+      // this is for switching btw login and signup, as Auth does both
+      component={props => user ?
+        <Redirect to={{pathname: '/'}}/> :
+        // pass authType prop to render Login Auth 
+        <Auth {...props} authType='Login' setUser={setUser} />
+      }
+    //   render={props => {
+    //     console.log('user: ', user)
+    //     console.log('user is logged? : ', user ? true : false)
+    //     if (user) {
+    //       return <Redirect to="/"/>
+    //     } else {
+    //       // pass authType prop to render login Auth 
+    //       return <Auth {...props} authType='Login' setUser={setUser} />
+    //     }
+    // }}
     />
-    {/* <Route
-      path="/login"
-      render={props => {
-          console.log(props)
-        return <Login {...props} setUser={setUser} />}}
-    /> */}
+
     <Route
       path="/signup"
-      render={props => user ?
+      component={props => user ?
         <Redirect to={{pathname: '/'}}/> :
-        <Auth {...props} authType='Sign Up' setUser={setUser}/>
+        // pass authType prop to render signup Auth 
+        <Auth {...props} authType='Sign Up' setUser={setUser} />
       }
     />
     <Route
