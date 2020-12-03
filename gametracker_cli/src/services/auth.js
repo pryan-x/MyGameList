@@ -2,7 +2,7 @@ import api from './apiConfig'
 
 export const loginUser = async credentials => {
     try {
-      const resp = await api.post('/login', credentials)
+      const resp = await api.post('/auth/login', credentials)
       console.log('Login finished: ', resp)
 
       localStorage.setItem('token', resp.data.token)
@@ -18,7 +18,7 @@ export const loginUser = async credentials => {
   export const signUpUser = async credentials => {
 
     try {
-      const resp = await api.post('/signup', credentials)
+      const resp = await api.post('/auth/signup', credentials)
       // localStorage.setItem('token', resp.data.token)
       console.log('Sign up finished: ', resp)
       return resp.data
@@ -29,7 +29,7 @@ export const loginUser = async credentials => {
 
 export const authUser = async (type, credentials) => {
   if (type === 'Sign Up') {
-    return signUpUser(credentials).then(() => loginUser(credentials))
+    return await signUpUser(credentials).then(() => loginUser(credentials))
 
   } else {
     return loginUser(credentials)

@@ -13,13 +13,13 @@ import AuthenticatedRoute from '../helpers/AuthenticatedRoute'
 
 const Routes = ({ 
   // getTracks, user, setUser, clearUser, addTrack, tracks
-  user, setUser, clearUser
+  user, setUser, clearUser, homepageData
 }) => (
   <Switch>
     <Route
       exact path="/"
       render = { props =>
-        <Home user={user} />
+        <Home homepageGames={homepageData} user={user} />
       }
     />
 

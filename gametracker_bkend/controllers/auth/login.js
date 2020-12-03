@@ -5,7 +5,7 @@ const TOKEN_KEY = process.env.TOKEN_KEY
 const db = require('../../db')
 const { findUserByName } = require('../../queries')
 
-const login = async (req, res) => {
+const login = (req, res) => {
     try {
         const { 
             username, 

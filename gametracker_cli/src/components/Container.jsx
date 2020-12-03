@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Routes from '../routes'
 import Header from './nav/Header'
+import { fetchHomepageGames } from '../services/igdbCalls'
 
 import '../css/Container.css'
 
@@ -15,7 +16,26 @@ export default class Container extends Component {
 
   async componentDidMount() {
     this.fetchUserFromStorage()
+    this.homepageDataLocalStorage()
+  }
 
+  fetchHomepageData = async () => {
+    const resp = await fetchHomepageGames()
+    localStorage.setItem('homepage', JSON.stringify(resp))
+    this.setState({
+      homepageData: resp
+    })
+    console.log(localStorage.getItem('homepage'))
+  }
+
+  homepageDataLocalStorage = () => {
+    if (localStorage.getItem('homepage')) {
+      this.setState({
+        homepageData: JSON.parse(localStorage.getItem('homepage'))
+      })
+    } else {
+      this.fetchHomepageData()
+    }
   }
 
   fetchUserFromStorage = () => {
@@ -58,7 +78,7 @@ export default class Container extends Component {
         <Header user={user} setUser={this.setUser} />
         <main classHeader='page'>
           <Routes
-            // getTracks={this.getTracks}
+            homepageData={this.state.homepageData}
             setPageHeader={this.setPageHeader}
             user={user}
             setUser={this.setUser}

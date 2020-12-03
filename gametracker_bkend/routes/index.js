@@ -1,27 +1,35 @@
 const express = require('express')
 const router = express.Router()
+
+//authroute
+const authRoute = require('./api/auth')
+
 const userRoute = require('./api/user')
 
-// authorization function that contin ues to the request 
+//ext api route
+const igdbRoute = require('./igdb')
+
+// authorization function that continues to the request 
 // when JWT is authorized from header
+
 // const checkAuthorization = require('../helpers/authenticate')
 
 
-const auth = require('../controllers/auth')
-// const signUp = require('../controllers/auth/signUp')
-// const login = require('../controllers/auth/login')
+// //AUTH
+// const auth = require('../controllers/auth')
+// router.post('/signup', auth.signUp)
+// router.post('/login', auth.login)
+// //0AUTH TO BE ADDED
 
-//everything here uses {PORT}/api
-//the /user is {PORT}/api/user
-//can do {PORT}/user/1 in the user.js
 
-//AUTH
-router.post('/signup', auth.signUp)
-router.post('/login', auth.login)
-//0AUTH TO BE ADDED
-
+//AUTH ROUTES
+router.use('/auth', authRoute)
 
 //RESTRICTED ROUTES
 router.use('/user', userRoute)
+
+
+//EXTERNAL API ROUTES
+router.use('/igdb', igdbRoute)
 
 module.exports = router

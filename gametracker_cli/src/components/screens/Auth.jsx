@@ -14,7 +14,7 @@ class Auth extends Component {
         password2: '',
         isError: false,
         errors: null,
-        authType: ''
+        authType: null
         }
     }
 
