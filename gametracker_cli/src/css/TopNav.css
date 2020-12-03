@@ -42,8 +42,9 @@
     /* change min-width if changing intro-text font settings */
     /* to prevent word wrap */
     min-width:200px;
-    padding-left: 8px;
-    padding-right: 5px;
+    /* padding-left: 8px;
+    padding-right: 5px; */
+    padding: 0 5px 2px 8px
     /* padding-right: 1%; */
 }
 .nav-intro-text-left {

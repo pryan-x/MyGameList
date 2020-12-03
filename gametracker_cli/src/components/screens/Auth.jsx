@@ -9,7 +9,7 @@ class Auth extends Component {
         super()
         this.state = {
         username: '',
-        email: '',
+        // email: '',
         password: '',
         password2: '',
         isError: false,

@@ -15,6 +15,7 @@ export default class Container extends Component {
   }
 
   async componentDidMount() {
+    // localStorage.removeItem('homepage')
     this.fetchUserFromStorage()
     this.homepageDataLocalStorage()
   }
@@ -25,7 +26,6 @@ export default class Container extends Component {
     this.setState({
       homepageData: resp
     })
-    console.log(localStorage.getItem('homepage'))
   }
 
   homepageDataLocalStorage = () => {

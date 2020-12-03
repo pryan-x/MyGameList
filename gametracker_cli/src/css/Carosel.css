@@ -1,39 +1,59 @@
 .homepage-carosel {
+    align-items: center;
     /* max-width: 900px; */
-    width: 90%;
+    width: 100%;
     min-height: 200px;
     max-height: 400px;
-    max-width: 900px;
+    padding: 10px 0 0 0;
     /* overflow: hidden; */
+
 }
-.carosel-game-title {
+.carosel-header-container {
+    width: 100%;
+    margin-bottom: 5px;
+    /* border-bottom: #ebebeb 1px solid; */
+    border-bottom: #dedede 1px solid;
+}
+
+.carosel-header-text {
+    font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-bottom: 4px;
+}
+/* .carosel-game-title {
     border-bottom: #ebebeb 1px solid;
-}
+} */
 
 .carosel-container {
     justify-content: center;
-    width:100%;
+    width:95%;
     height: 100%;
     overflow: hidden;
-    
+    max-width: 1000px;
+    /* box-shadow: inset 0 1px 10px 0 rgba(0,0,0,.3); */
 }
 /* .carosel-list {
 
 } */
-.carosel-child {
+.carosel-card {
     /* max-width: 33.3333%;
     flex: 0 0 33.3333%; */
-    max-width: 20%;
-    flex: 0 0 20%;
-
+    max-width: 18%;
+    flex: 0 0 18%;
+    /* max-width: 20%;
+    flex: 0 0 20%; */
     /* position: relative; */
+    padding: 8px;
+    /* box-sizing: border-box; */
 }
-.carosel-child img {
+.carosel-card img {
     /* height: 100%; */
     width: 100%;
 
 }
-.carosel-child-content-wrapper {
+.carosel-card-content-wrapper {
     width: 100%;
     height: 100%;
 
@@ -44,6 +64,84 @@
     top: 0px;
     position: absolute; */
 }
-.carosel-child-title {
+.carosel-card-metadata {
+    box-sizing: border-box;
+    padding: 6px 1px 6px 5px;
+    height: 50px;
+    border: #ebebeb 1px solid; 
+    /* border-top: #f2f1f1 1px solid; */
+    border-top:unset;
+}
+
+.carosel-card-metadata-left {
+    height: 100%;
+    width: 75%;
+    padding-right: 4px;
+    /* padding: 8px 4px; */
+    /* justify-content: flex-start; */
+}
+.carosel-card-metadata-right { 
+    height: 100%;
+    width: 25%;
+
+}
+.carosel-card-name {
+    /* font-family: 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: 'Fira Sans', Verdana, Arial, sans-serif; */
+    /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: 'Poppins'; */
+    font-family: 'Inter';
+    /* letter-spacing: .5px; */
+    /* font-family: 'Roboto'; */
+    /* font-family: 'Roboto Slab'; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 1px;
+}
+.carosel-card-genre {
+    font-family: 'Inter';
+    font-size: 13px;
+    /* maybe delete padding-left */
+    padding-left: 5px;
+    padding-top: 1px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: normal;
+}
+/* overflow text fix */
+.carosel-card-name, .carosel-card-genre  {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.carosel-card-rating {
     text-align: center;
+    /* padding-bottom: 5px; */
+      font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif;
+
+    /* font-family: 'Poppins'; */
+    /* font-family: 'Inter'; */
+    font-size: 14px;
+    /* font-weight: 400; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
+}
+/* .carosel-card-rating {
+    text-align: center;
+
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #7f7f7f;
+    font-weight: 300;
+
+} */
+.carosel-card-ratingx {
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Inter';
+    padding-bottom: 5px;
 }

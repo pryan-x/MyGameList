@@ -24,6 +24,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	/* line-height: normal; */
+	/* line-height: 1.1; */
 	line-height: 1;
 }
 ol, ul {
