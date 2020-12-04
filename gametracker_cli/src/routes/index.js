@@ -4,15 +4,10 @@ import Home from '../components/screens/Home'
 
 import Logout from '../helpers/Logout'
 import Auth from '../components/screens/Auth'
-// import Tracks from '../screens/Tracks'
-// import MyTracks from '../screens/MyTracks'
-// import Track from '../screens/Track'
-// import CreateTrack from '../screens/CreateTrack'
-// import EditTrack from '../screens/EditTrack'
-import AuthenticatedRoute from '../helpers/AuthenticatedRoute'
+
+// import AuthenticatedRoute from '../helpers/AuthenticatedRoute'
 
 const Routes = ({ 
-  // getTracks, user, setUser, clearUser, addTrack, tracks
   user, setUser, clearUser, homepageData
 }) => (
   <Switch>

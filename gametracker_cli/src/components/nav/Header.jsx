@@ -13,6 +13,7 @@ class Header extends React.Component {
   handleToggle = (e) => {
     // e.target.focus();
     this.setState(prevState=>({ dropdown: !prevState.dropdown }));
+    console.log('dropdown toggled')
   }
   
   handleBlur = (e) => {
@@ -28,11 +29,12 @@ class Header extends React.Component {
   //       this.setState({ dropdown: false });
   //     }, 100);
   //   }
-
+    
     setTimeout(() => {
       if (!currentTarget.contains(document.activeElement)) {
         this.setState({ dropdown: false });
       }
+      console.log('dropdown toggled')
     }, 0)
   }
 

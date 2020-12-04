@@ -31,6 +31,7 @@ const fixedTopNav = () => (
                     <img
                         src={require("../../resources/img/logo_placeholder.png")}
                         className='logo-placeholder'
+                        alt='img'
                     />
                     <h3 className='title'>MyGameList</h3>
                 </NavLink>
@@ -50,6 +51,7 @@ const fixedTopNav = () => (
                         <img
                             src={require("../../resources/img/search.svg")}
                             className='nav-search-icon'
+                            alt='img'
                         />
                     </button>
                 </form>
@@ -66,14 +68,17 @@ const authenticatedTopNav = (user, dropdownCheck, handleToggle, handleBlur) => (
             <img
                 src={require("../../resources/img/profile_placeholder.png")}
                 className='nav-pfp-PLACEHOLDER disable-select'
+                alt='img'
             />
             <h3 className='nav-username disable-select'>{user.username}</h3>
             <img
-                src={require("../../resources/img/caret.png")}
+                src={require("../../resources/img/dropdown_caret.png")}
                 className='nav-caret disable-select'
+                alt='img'
                 style={{
                     transform: dropdownCheck === false ? 'rotate(0deg)' : 'rotate(-180deg)',
                     transition: 'transform .95s cubic-bezier(.16,1.1,.59,.98)'
+                    
                 }}
             />
             {/* dropdown */}
@@ -97,6 +102,7 @@ const authenticatedTopNav = (user, dropdownCheck, handleToggle, handleBlur) => (
                             <img
                                 src={require("../../resources/img/exit_door.svg")}
                                 className='logout-icon'
+                                alt='img'
                             />
                         </NavLink>
                     </li>

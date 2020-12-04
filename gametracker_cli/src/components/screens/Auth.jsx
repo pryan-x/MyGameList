@@ -5,8 +5,8 @@ import PageHeader from '../shared/PageHeader'
 import '../../css/Auth.css'
 
 class Auth extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
         username: '',
         // email: '',
@@ -14,15 +14,15 @@ class Auth extends Component {
         password2: '',
         isError: false,
         errors: null,
-        authType: null
+        authType: props.authType
         }
     }
 
-    componentDidMount = () => {
-        this.setState({
-            authType: this.props.authType
-        })
-    }
+    // componentDidMount = () => {
+    //     this.setState({
+    //         authType: this.props.authType
+    //     })
+    // }
 
     handleChange = event => {
         this.setState({
@@ -76,7 +76,8 @@ class Auth extends Component {
     }
 
     render() {
-        const { email, username, password, password2 } = this.state
+        // email,
+        const { username, password, password2 } = this.state
         const { authType } = this.state
 
         return (

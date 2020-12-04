@@ -14,7 +14,12 @@ export default class Container extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    if (!localStorage.getItem('homepage')) {
+      this.fetchHomepageData()
+    }
+  }
+  componentWillMount() {
     // localStorage.removeItem('homepage')
     this.fetchUserFromStorage()
     this.homepageDataLocalStorage()
@@ -26,6 +31,7 @@ export default class Container extends Component {
     this.setState({
       homepageData: resp
     })
+    console.log('setstate homepagedata and localstorage')
   }
 
   homepageDataLocalStorage = () => {
@@ -33,9 +39,11 @@ export default class Container extends Component {
       this.setState({
         homepageData: JSON.parse(localStorage.getItem('homepage'))
       })
+      console.log('gotlocalstorage homepagedata')
     } else {
       this.fetchHomepageData()
     }
+    
   }
 
   fetchUserFromStorage = () => {
@@ -48,6 +56,7 @@ export default class Container extends Component {
         // user: localStorage.getItem('user')
         user: JSON.parse(localStorage.getItem('user'))
       })
+      console.log('got user from localstorage')
     }
   }
   // fetchTracks = async () => {
@@ -62,12 +71,13 @@ export default class Container extends Component {
   // addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
 
   setUser = user => {
-    console.log('yo')
+    console.log('user logged in')
     this.setState({ user })
   }
 
   clearUser = () => {
     this.setState({ user: null })
+    console.log('user logged out')
   }
 
   render() {
@@ -76,7 +86,7 @@ export default class Container extends Component {
       <>
         {/* <Header user={user} {...this.props} setUser={this.setUser} /> */}
         <Header user={user} setUser={this.setUser} />
-        <main classHeader='page'>
+        <main>
           <Routes
             homepageData={this.state.homepageData}
             setPageHeader={this.setPageHeader}
