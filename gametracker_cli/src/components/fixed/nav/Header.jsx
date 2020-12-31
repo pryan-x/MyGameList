@@ -18,18 +18,7 @@ class Header extends React.Component {
   
   handleBlur = (e) => {
     const currentTarget = e.currentTarget;
-    // if (e.nativeEvent.explicitOriginalTarget &&
-    //     e.nativeEvent.explicitOriginalTarget === e.nativeEvent.originalTarget) {
-    //   return;
-    // }
-      // ANOTHER WORKAROUND
-  //   console.log('fire')
-  //   if (this.state.dropdown) {
-  //     setTimeout(() => {
-  //       this.setState({ dropdown: false });
-  //     }, 100);
-  //   }
-    
+
     setTimeout(() => {
       if (!currentTarget.contains(document.activeElement)) {
         this.setState({ dropdown: false });
@@ -44,7 +33,7 @@ class Header extends React.Component {
   render() {
     const { user } = this.props
     return (
-      <div className="flex-col">
+      <div className="flex-col nav">
         <div className='flex nav-top'>
           <TopNav user={user} handleToggle={this.handleToggle} handleBlur={this.handleBlur} dropdownCheck={this.state.dropdown}
           />

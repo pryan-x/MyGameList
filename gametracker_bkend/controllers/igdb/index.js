@@ -30,59 +30,72 @@ const homepage = async (req, res) => {
     // body of api call, gets sent as data object in request
     // specifies parameters of request
     body = `
-        query games "Top Rated Games" {
-            fields name,rating,rating_count,follows,cover.image_id,platforms.name;
-            where category = 0 & version_parent = null & rating != null & rating_count > 100;
-            sort rating desc;
-            limit 5;
-        };
-        query games "Most Anticipated" {
-            fields name,rating,rating_count,follows,cover.image_id,platforms.name;
-            where first_release_date >= ${todayUnix} & hypes > 50;
-            sort hypes desc;
-            limit 5;
-        };
-        query games "Trending Upcoming Games" {
-            fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name;
-            where (first_release_date >= ${todayUnix} & first_release_date <= ${dateAfterToday}) & hypes > 5;
-            sort hypes desc;
-            limit 5;
-        };
-        query games "Top Games of ${year-1}" {
-            fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name;
-            where (first_release_date >= ${lastYearStartDate} & first_release_date <= ${yearStartDate}) & hypes > 2 & category = 0 & version_parent = null & rating != null & rating_count > 20 & follows > 0;
-            sort rating desc;
-            limit 16;
-        };
         query games "Popular Recent Releases" {
             fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name;
             where (first_release_date >= ${dateBeforeToday} & first_release_date <= ${todayUnix}) & hypes > 2 & version_parent = null & rating != null & rating_count > 5;
             sort follows desc;
             limit 16;
         };
+        query games "Top Upcoming Games" {
+            fields name,rating,rating_count,hypes,follows,cover.image_id,genres.*,platforms.name;
+            where (first_release_date >= ${todayUnix}) & cover != null & hypes > 5;
+            sort hypes desc;
+            limit 24;
+        };
+        query games "Most Anticipated (Release Date TBA)" {
+            fields name,rating,rating_count,hypes,follows,cover.image_id,platforms.name;
+            where first_release_date = null & cover != null & hypes > 5;
+            sort hypes desc;
+            limit 24;
+        };
+        query games "Popular Game Trailers" {
+            fields name,rating,rating_count,hypes,follows,videos.*;
+            where first_release_date = null & hypes > 5 & videos != null;
+            sort hypes desc;
+            limit 24;
+        };
+        query games "Top Games of ${year-1} Screenshots" {
+            fields name,artworks.image_id,screenshots.image_id;
+            where (first_release_date >= ${lastYearStartDate} & first_release_date <= ${yearStartDate}) & hypes > 2 & category = 0 & version_parent = null & rating != null & rating_count > 20 & follows > 15 & screenshots != null & artworks != null & rating > 75;
+            sort hypes desc;
+            limit 40;
+        };
+        query games "Top Rated Games" {
+            fields name,rating,rating_count,follows,cover.image_id,platforms.name;
+            where category = 0 & version_parent = null & rating != null & rating_count > 100;
+            sort rating desc;
+            limit 5;
+        };
+        query games "Top Games of ${year-1}" {
+            fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name,screenshots.image_id;
+            where (first_release_date >= ${lastYearStartDate} & first_release_date <= ${yearStartDate}) & hypes > 2 & category = 0 & version_parent = null & rating != null & rating_count > 20 & follows > 0;
+            sort rating desc;
+            limit 5;
+        };
         ${todayUnix >= summerStartDate ? `
-            query games "Top Games of This Year" {
+            query games "Top Games of ${year}" {
                 fields name,rating,rating_count,follows,cover.image_id,platforms.name;
                 where (first_release_date >= ${yearStartDate} & first_release_date <= ${todayUnix}) & hypes > 2 & version_parent = null & rating != null & rating_count > 20;
                 sort rating desc;
-                limit 16;
+                limit 5;
             };
             ` 
         : ''}
 
         `
-            // query games "Popular Recent Releases2" {
-            //     fields name,rating,rating_count,hypes,follows;
-            //     where (first_release_date >= ${dateBeforeToday} & first_release_date <= ${todayUnix}) & hypes > 2 & version_parent = null & rating != null & rating_count > 5;
-            //     sort hypes desc;
-            //     limit 30;
-            // };
-            // query games "Popular Recent Releases3" {
-            //     fields name,rating,rating_count,hypes,follows;
-            //     where (first_release_date >= ${dateBeforeToday} & first_release_date <= ${todayUnix}) & hypes > 2 & version_parent = null & rating != null & rating_count > 5;
-            //     sort rating desc;
-            //     limit 30;
-            // };
+        // query games "Most Anticipated" {
+        //     fields name,rating,rating_count,follows,cover.image_id,platforms.name;
+        //     where first_release_date >= ${todayUnix} & hypes > 50;
+        //     sort hypes desc;
+        //     limit 16;
+        // };
+        // query games "Top Upcoming Games" {
+        //     fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name;
+        //     where (first_release_date >= ${todayUnix} & first_release_date <= ${dateAfterToday}) & hypes > 5;
+        //     sort hypes desc;
+        //     limit 16;
+        // };
+         
 
     // limit controls response size
     // offset controls the starting position

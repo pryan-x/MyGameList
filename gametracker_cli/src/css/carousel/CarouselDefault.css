@@ -1,0 +1,109 @@
+/* this is to center caret on image of default carousel cards, 
+rather than centering on height of image+metadata container */
+
+.carousel-container.default .carousel-caret-wrapper {
+    margin-bottom: 48px;
+}
+
+
+
+/* ~~ Default Carousel Animation Shift ~~ */
+
+/* default card width: 20% */
+.carousel-animation-active-right.default{
+    animation: shift-right;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+    /* animation-duration: 5s; */
+}
+.carousel-animation-active-left.default{
+    animation: shift-left;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+    /* animation-duration: 5s; */
+}
+@keyframes shift-right {
+    from {transform: translateX(0%)}
+
+    to {transform: translateX(-60%)}
+}
+@keyframes shift-left {
+    from {transform: translateX(0%)}
+
+    to {transform: translateX(60%)}
+}
+
+
+/* ~~ Media Quieries ~~ */
+@media (max-width: 1250px) and (min-width : 1200px) {
+    .carousel-card-rating-text {
+        font-size: 10px;
+    }
+    .carousel-card-rating {
+        font-size: 11px;
+    }
+    .carousel-card-title {
+        font-size: 13px;
+    }
+    .carousel-card-subtitle {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1199px) and (min-width : 951px) {
+    @keyframes shift-right {
+        from {transform: translateX(-70%)}
+    
+        to {transform: translateX(14%)}
+    }
+    @keyframes shift-left {
+        from {transform: translateX(98%)}
+    
+        to {transform: translateX(14%)}
+    }
+    .carousel-list.default {
+        transform: translateX(14%);
+    }
+    .carousel-card.default {
+        max-width: 28%;
+        flex: 0 0 28%;
+    }
+}
+
+@media (max-width: 1050px) and (min-width : 951px) {
+    .carousel-card-rating-text {
+        font-size: 10px;
+    }
+    .carousel-card-rating {
+        font-size: 11px;
+    }
+    .carousel-card-title {
+        font-size: 13px;
+    }
+    .carousel-card-subtitle {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 1199px) and (min-width : 951px) {
+    @keyframes shift-right {
+        from {transform: translateX(-70%)}
+    
+        to {transform: translateX(14%)}
+    }
+    @keyframes shift-left {
+        from {transform: translateX(98%)}
+    
+        to {transform: translateX(14%)}
+    }
+    .carousel-list {
+        transform: translateX(14%);
+    }
+    .carousel-card {
+        max-width: 28%;
+        flex: 0 0 28%;
+    }
+}

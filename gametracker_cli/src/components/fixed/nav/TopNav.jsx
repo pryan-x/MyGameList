@@ -1,7 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import '../../css/TopNav.css'
 
+import '../../../css/TopNav.css'
+
+// images
+import logoutIcon from '../../../resources/img/exit_door.svg'
+import searchIcon from '../../../resources/img/search.svg'
+import profileDropdownCaret from '../../../resources/img/dropdown_caret.png'
+import profilePicturePlaceholder from '../../../resources/img/profile_placeholder.png'
+import titleLogoIcon from '../../../resources/img/logo_placeholder.png'
 
 const TopNav = (props) => {
     const {
@@ -29,7 +36,7 @@ const fixedTopNav = () => (
             <div className='flex nav-title-logo-container'>
                 <NavLink className='flex' to="/">
                     <img
-                        src={require("../../resources/img/logo_placeholder.png")}
+                        src={titleLogoIcon}
                         className='logo-placeholder'
                         alt='img'
                     />
@@ -49,7 +56,7 @@ const fixedTopNav = () => (
                     <input placeholder='Search games, genre, characters...' className='nav-search-input' />
                     <button type='submit' className='flex nav-search-icon-wrapper'>
                         <img
-                            src={require("../../resources/img/search.svg")}
+                            src={searchIcon}
                             className='nav-search-icon'
                             alt='img'
                         />
@@ -66,13 +73,13 @@ const authenticatedTopNav = (user, dropdownCheck, handleToggle, handleBlur) => (
         {/* these events trigger the dropdown */}
         <div onClick={(e) => handleToggle(e)} onBlur={(e) => handleBlur(e)} tabIndex="0" className='flex nav-user-dropdown-button'>
             <img
-                src={require("../../resources/img/profile_placeholder.png")}
+                src={profilePicturePlaceholder}
                 className='nav-pfp-PLACEHOLDER disable-select'
                 alt='img'
             />
             <h3 className='nav-username disable-select'>{user.username}</h3>
             <img
-                src={require("../../resources/img/dropdown_caret.png")}
+                src={profileDropdownCaret}
                 className='nav-caret disable-select'
                 alt='img'
                 style={{
@@ -100,7 +107,7 @@ const authenticatedTopNav = (user, dropdownCheck, handleToggle, handleBlur) => (
                         <NavLink className='flex logout-button' to="/logout">
                             <h3 className='logout-text'>Logout</h3>
                             <img
-                                src={require("../../resources/img/exit_door.svg")}
+                                src={logoutIcon}
                                 className='logout-icon'
                                 alt='img'
                             />

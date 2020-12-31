@@ -7,14 +7,24 @@ import Auth from '../components/screens/Auth'
 
 // import AuthenticatedRoute from '../helpers/AuthenticatedRoute'
 
-const Routes = ({ 
-  user, setUser, clearUser, homepageData
-}) => (
+
+
+const Routes = React.memo(props => {
+  const { 
+    user, setUser, clearUser, homepageData
+  } = props
+
+// export default React.memo = ({ 
+// // const Routes = ({ 
+//   user, setUser, clearUser, homepageData
+// }) => (
+
+return(
   <Switch>
     <Route
       exact path="/"
       render = { props =>
-        <Home homepageGames={homepageData} user={user} />
+        homepageData && <Home homepageGames={homepageData} user={user} />
       }
     />
 
@@ -110,6 +120,9 @@ const Routes = ({
     //     render={props => <EditTrack {...props} user={user} />}
     //   />
     // </Switch>
-  )
+
+  // )
+)
+})
 
 export default Routes

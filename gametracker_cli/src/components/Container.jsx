@@ -1,56 +1,71 @@
 import React, { Component } from 'react'
 import Routes from '../routes'
-import Header from './nav/Header'
+import Header from './fixed/nav/Header.jsx'
+import PageHeader from './fixed/PageHeader.jsx'
+import BackgroundImage from './fixed/BackgroundImage.jsx'
+import PageWrapper from './fixed/PageWrapper.jsx'
+import Footer from './fixed/Footer.jsx'
 import { fetchHomepageGames } from '../services/igdbCalls'
 
 import '../css/Container.css'
 
 export default class Container extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       user: null,
-      pageHeader: null
+      pageHeader: null,
+
+      // default
+      // imageArrLength: 30,
+      imageToDisplayIndex: 0,
     }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    //Really it's a deeper equality check, not just the props/state object
+    return this.props !== nextProps || this.state !== nextState;
   }
 
   componentDidMount() {
-    if (!localStorage.getItem('homepage')) {
-      this.fetchHomepageData()
-    }
-  }
-  componentWillMount() {
+    console.log('main container mounted')
+
+    // reset local data
     // localStorage.removeItem('homepage')
+
+
+    this.baseFetchSetState()
+    
     this.fetchUserFromStorage()
-    this.homepageDataLocalStorage()
   }
 
-  fetchHomepageData = async () => {
-    const resp = await fetchHomepageGames()
-    localStorage.setItem('homepage', JSON.stringify(resp))
-    this.setState({
-      homepageData: resp
-    })
-    console.log('setstate homepagedata and localstorage')
-  }
-
-  homepageDataLocalStorage = () => {
+  baseFetchSetState = async () => {
+    let resp
     if (localStorage.getItem('homepage')) {
-      this.setState({
-        homepageData: JSON.parse(localStorage.getItem('homepage'))
-      })
+      resp = JSON.parse(localStorage.getItem('homepage'))
       console.log('gotlocalstorage homepagedata')
     } else {
-      this.fetchHomepageData()
+      resp = await fetchHomepageGames()
+      localStorage.setItem('homepage', JSON.stringify(resp))
     }
-    
+
+    this.setState(() => {
+      const imageArr = this.makeBackgroundImageArray(resp[4].result)
+
+      return { 
+        homepageData: resp,
+        // imageArrLength: imageArr.length,
+        backgroundImageScreenshots: imageArr,
+    }})
   }
 
+  makeBackgroundImageArray = (arr) => (
+    arr.map(game => (
+        game.artworks[0].image_id
+    ))
+  )
+
   fetchUserFromStorage = () => {
-    // const user =  JSON.parse( localStorage.getItem('user') )
-    // const user =  localStorage.getItem('user')
-    // console.log(user)
-    
     if (!this.state.user) {
       this.setState({
         // user: localStorage.getItem('user')
@@ -59,43 +74,47 @@ export default class Container extends Component {
       console.log('got user from localstorage')
     }
   }
-  // fetchTracks = async () => {
-  //   try {
-  //     const tracks = await getTracks()
-  //     this.setState({ tracks })
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
 
-  // addTrack = track => this.setState({ tracks: [...this.state.tracks, track] })
-
+  // login 
   setUser = user => {
-    console.log('user logged in')
     this.setState({ user })
+    console.log('user logged in')
   }
 
+  // logout
   clearUser = () => {
     this.setState({ user: null })
     console.log('user logged out')
   }
 
   render() {
-    const { user } = this.state
+    const { 
+      user, 
+      homepageData, 
+      backgroundImageScreenshots 
+    } = this.state
+    console.log(this.state.homepageData)
     return (
       <>
         {/* <Header user={user} {...this.props} setUser={this.setUser} /> */}
         <Header user={user} setUser={this.setUser} />
-        <main>
-          <Routes
-            homepageData={this.state.homepageData}
-            setPageHeader={this.setPageHeader}
-            user={user}
-            setUser={this.setUser}
-            // addTrack={this.addTrack}
-            clearUser={this.clearUser}
-          />
-        </main>
+        {/* <main> */}
+          <PageWrapper backgroundImages={backgroundImageScreenshots} >
+            {/* {
+              backgroundImageScreenshots && <BackgroundImage images={backgroundImageScreenshots}/>
+            } */}
+            <PageHeader pageHeader={`Welcome`}/>
+            <Routes
+              homepageData={homepageData}
+              setPageHeader={this.setPageHeader}
+              user={user}
+              setUser={this.setUser}
+              // addTrack={this.addTrack}
+              clearUser={this.clearUser}
+            />
+          </PageWrapper>
+        {/* </main> */}
+        <Footer />
       </>
     )
   }

@@ -1,0 +1,25 @@
+.footer-wrapper {
+    height: 100px;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: #ffd0cd;
+    position: relative;
+    z-index: 1;
+}
+.footer {
+    width: 84%;
+    max-width: 1150px;
+    padding: 20px 0;
+    margin: 0 8%;
+
+    /* border-top: #dedede 1px solid; */
+    /* border-top: #ffffff50 1px solid; */
+
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(to right, #ffffff00, #ffffff, #ffffff00);
+    border-image-slice: 1;
+}
+.footer-placeholder-content {
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,159 @@
+.carousel-container.video .carousel-caret-container svg, .carousel-container.smaller .carousel-caret-container svg{
+    bottom: 0;
+    /* margin-bottom: unset; */
+}
+
+
+
+.carousel-card.video .carousel-custom-container {
+    padding: unset;
+    z-index: 3;
+    /* bottom: 0px; */
+}
+.carousel-list.video {
+    transform: translateX(30%);
+    align-items: center;
+    
+}
+.carousel-card.video {
+    max-width: 60%;
+    flex: 0 0 60%;
+    align-items: center;
+}
+.carousel-video-container {
+    /* z-index: 2; */
+    position: absolute;
+    overflow: hidden;
+    /* padding-top: 56.25%; */
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+     /* height: 399px; left: 0px; top: 125px; */
+     /* position: relative; */
+     /* z-index: 1; */
+     transition: all 0.5s ease;
+}
+
+.carousel-card.video .carousel-card-img {
+    /* height: 144%;
+    width: 100%;
+    left: 0; 
+    top: -22%; */
+    height: 134%;
+    width: 100%;
+    left: 0;
+    top: -17%;
+    position: absolute;
+    /* z-index: 1; */
+    pointer-events: none;
+    transition: opacity .4s ease;
+}
+
+.carousel-play-img-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* pointer-events: none; */
+}
+
+.carousel-play-img {
+    transition: all .5s ease;
+    /* pointer-events: none; */
+    width: 14%;
+    opacity: .5;
+    z-index: 1;
+    margin-left: 1px;
+}
+.opacity-transition-play-icon{
+    animation: fill-opacity;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .3s;
+}
+@keyframes fill-opacity {
+    from {opacity: 0}
+    
+    to {opacity: .5}
+}
+/* .nofocus .carousel-play-img {
+    opacity: .5;
+} */
+
+.carousel-card.video .carousel-card-content-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    transform: scale3d(1, 1, 1);
+    transition: all .5s ease;
+}
+
+.shadow-image-fix {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0px 0px 25px 20px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, .25); */
+    background-color: rgba(0, 0, 0, .2);
+    /* transition: box-shadow 15s ease, background-color 15s ease; */
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+    pointer-events: none;
+}
+
+.nofocus:hover .carousel-play-img {
+    opacity: .9;
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.5));
+}
+.nofocus:hover .shadow-image-fix{
+    box-shadow: inset 0px 0px 25px 20px rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0); 
+}
+.carousel-card.video .carousel-card-content-wrapper:hover {
+    transform: scale3d(1.015, 1.015, 1);
+}
+.carousel-card.video .carousel-card-content-wrapper.focused {
+    transform: scale3d(1.015, 1.015, 1);
+}
+.carousel-card-content-wrapper.focused .shadow-image-fix{
+    box-shadow: unset;
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+
+.carousel-animation-active-right.video{
+    animation: shift-right-video;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+    /* animation-duration: 15s; */
+    /* animation-duration: 40s; */
+}
+.carousel-animation-active-left.video{
+    animation: shift-left-video;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+    /* animation-duration: 15s; */
+    /* animation-duration: 40s; */
+}
+@keyframes shift-left-video {
+    /* from {transform: translateX(-30%)} */
+
+    from {transform: translateX(30%)}
+    to {transform: translateX(90%)}
+    
+    /* to {transform: translateX(30%)} */
+}
+@keyframes shift-right-video {
+    /* from {transform: translateX(90%)} */
+
+    from {transform: translateX(30%)}
+    to {transform: translateX(-30%)}
+    
+    /* to {transform: translateX(30%)} */
+}

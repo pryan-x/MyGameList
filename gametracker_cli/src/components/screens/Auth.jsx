@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { authUser } from '../../services/auth'
-import PageHeader from '../shared/PageHeader'
+import PageHeader from '../fixed/PageHeader'
 import '../../css/Auth.css'
 
 class Auth extends Component {
@@ -82,8 +82,14 @@ class Auth extends Component {
 
         return (
             <>
-                <PageHeader pageHeader={`${authType}`} />
+                {/* <PageHeader pageHeader={`${authType}`} /> */}
                 <div className='flex-col auth-page'>
+                    {/* <div>
+                        <p style={{
+                            marginBottom: '40px'
+                        }}
+                        className='auth-welcome'>Start organizing the games you have played!</p>
+                    </div> */}
                     <div className='auth-wrapper'>
                         <div className='flex-col auth-container'>
                             <div className='flex-col auth-welcome-container'>

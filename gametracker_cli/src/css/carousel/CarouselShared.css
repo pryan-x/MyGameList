@@ -1,0 +1,216 @@
+.homepage-carousel {
+    align-items: center;
+    padding: 15px 0 0 0;
+    min-height: 0;
+    width: 100%;
+}
+
+.carousel-header-container {
+    width: 100%;
+    margin-bottom: 5px;
+    /* border-bottom: #ebebeb 1px solid; */
+    border-bottom: #dedede 1px solid;
+}
+
+.carousel-header-text {
+    font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-bottom: 4px;
+}
+
+.carousel-container {
+    justify-content: center;
+    width:95%;
+    height: 100%;
+    overflow: hidden;
+    max-width: 1000px;
+    /* box-shadow: inset 0 1px 10px 0 rgba(0,0,0,.3); */
+    position: relative;
+    box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+.carousel-list {
+    justify-content: center;
+    align-items: flex-end;
+    /* overflow: hidden; */
+    position: relative;
+    width: 100%;
+    will-change: transform; 
+}
+
+
+/* ~~ shared card styles ~~ */
+.carousel-card {
+    /* max-width: 33.3333%;
+    flex: 0 0 33.3333%; */
+    max-width: 20%;
+    flex: 0 0 20%;
+    /* max-width: 18%;
+    flex: 0 0 18%; */
+    /* max-width: 20%;
+    flex: 0 0 20%; */
+    position: relative;
+    padding: 8px;
+    /* margin: 8px; */
+
+    /* VERY IMPORTANT FOR ANIMATION SMOOTHNESS if using no calc */
+    box-sizing: border-box;
+}
+.carousel-card-img {
+    /* height: auto; */
+    width: 100%;
+    /* min-width: 0; */
+}
+.carousel-card-img-container {
+   /* min-height: 0;  */
+   justify-content: center;
+}
+.carousel-card-content-wrapper {
+    /* *** */
+    box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.05);
+    /* *** */
+
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 100%;
+
+    /* for twitch animation later */
+    /* min-width: 100%;
+    min-height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute; */
+    cursor: pointer;
+}
+.carousel-card-metadata {
+    /* padding: unset; */
+    box-sizing: border-box;
+    /* padding: 6px 4px 6px 5px; */
+    padding: 6px;
+    min-height: 45px;
+    /* border: #ebebeb 1px solid;  */
+    /* border-top: #f2f1f1 1px solid; */
+    border-top:unset;
+    /* box-shadow: 0px -1px 6px -1px rgba(0, 0, 0, 0.15); */
+    justify-content: space-between;
+}
+
+.carousel-card-metadata-left {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    margin-right: 4px;
+
+    /* padding: 8px 4px; */
+    /* justify-content: flex-start; */
+    justify-content: space-between;
+}
+.carousel-card-metadata-right { 
+    box-sizing: border-box;
+    height: 100%;
+    width: 20%;
+    /* padding-right: ; */
+    align-items: center;
+
+}
+.carousel-card-title {
+    /* font-family: 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: 'Fira Sans', Verdana, Arial, sans-serif; */
+    /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: 'Poppins'; */
+    font-family: 'Inter';
+    /* letter-spacing: .5px; */
+    /* font-family: 'Roboto'; */
+    /* font-family: 'Roboto Slab'; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 1px;
+}
+.carousel-card-subtitle {
+    font-family: 'Inter';
+    font-size: 13px;
+    /* maybe delete padding-left */
+    /* padding-left: 5px; */
+    padding-top: 1px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: normal;
+}
+/* overflow text fix */
+.carousel-card-title, .carousel-card-subtitle  {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 50%;
+}
+.carousel-card-rating {
+    text-align: right;
+    width: min-content;
+    /* padding-bottom: 5px; */
+      /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: Verdana, sans-serif; */
+    font-family: 'Open Sans';
+    letter-spacing: 1px;
+    /* font-family: 'Poppins'; */
+    /* font-family: 'Inter'; */
+    font-size: 13px;
+    font-weight: 600;
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
+}
+.carousel-card-rating-text {
+    font-weight: 600;
+    text-align: center;
+    font-size: 11px;
+    /* font-family: 'Inter'; */
+    font-family: 'Open Sans';
+    /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    padding-bottom: 6px;
+}
+
+
+
+/* CSS for JustTitle() */
+.carousel-custom-container {
+    /* click throughable */
+    pointer-events: none;
+    /* click throughable */
+
+    box-sizing: border-box;
+    position: absolute;
+    /* bottom: -1px; */
+    bottom: 0;
+    width: inherit;
+    /* height: inherit; */
+    left: 0;
+
+    transition: opacity 0.5s ease-in-out;
+    padding: 8px;
+}
+.carousel-custom-container .carousel-card-metadata {
+    /* padding: unset; */
+    /* padding-bottom: 4px; */
+    padding: 0 5px 4px;
+    width: inherit;
+    height: inherit;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: url(/images/gradient.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    /* background-size: 120%; */
+    background-size: 100% 100%;
+    min-height: 30px;
+}
+.carousel-custom-container .carousel-card-title {
+    text-align:center;
+    height: unset;
+    color: white;
+    text-shadow: rgba(0,0,0,.8) 1px 1px 0;
+    font-size: 12px;
+}

@@ -1,0 +1,29 @@
+.carousel-animation-active-right.smaller{
+    animation: shift-right-smaller;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+}
+.carousel-animation-active-left.smaller{
+    animation: shift-left-smaller;
+    animation-timing-function: ease-in-out;
+
+    animation-duration: .5s;
+}
+@keyframes shift-right-smaller {
+    from {transform: translateX(8.5%)}
+
+    to {transform: translateX(-42.5%)}
+}
+@keyframes shift-left-smaller {
+    from {transform: translateX(8.5%)}
+    
+    to {transform: translateX(59.5%)}
+}
+.carousel-list.smaller {
+    transform: translateX(8.5%);
+}
+.carousel-card.smaller {
+    max-width: 17%;
+    flex: 0 0 17%;
+}
