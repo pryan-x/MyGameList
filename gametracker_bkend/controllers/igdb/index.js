@@ -111,8 +111,26 @@ const homepage = async (req, res) => {
 	}
 }
 
-
+const gamepage = async (req, res) => {
+    console.log(req)
+    body = `
+        fields name,rating,rating_count,follows,cover.image_id,genres.*,platforms.name,artworks.image_id,screenshots.image_id;
+        where id = ${req.query.gameid};
+        sort follows desc;
+        limit 16;
+    `
+    try {
+        const resp = await igdbApi.post('/games', body)
+        console.log(resp)
+        res.status(200).json(resp.data)
+		// res.json(resp.data);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
+	}
+}
 
 module.exports = {
-    homepage
+    homepage,
+    gamepage
 }
