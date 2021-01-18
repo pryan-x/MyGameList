@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../css/Footer.css'
+import '../../css/base/Footer.css'
 
 export default () => (
     <div className='flex-col footer-wrapper'>

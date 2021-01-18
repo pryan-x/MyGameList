@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player/youtube'
 import Spinner from './LoadingSpinner.jsx'
+import { Link } from 'react-router-dom'
+
 
 export default (props) => {
     return (
@@ -80,7 +82,8 @@ const RenderGameCards = (props) => {
             key={game.id} 
             className={`flex-col carousel-card ${carouselType}`}
         >
-            <div className='flex-col carousel-card-content-wrapper'>
+            <Link className='flex-col carousel-card-content-wrapper' to={`/game/${game.id}`}>
+            {/* <div className='flex-col carousel-card-content-wrapper'> */}
                 { game.cover 
                     ? <img 
                         className='carousel-card-img'
@@ -90,7 +93,7 @@ const RenderGameCards = (props) => {
                     : ''
                 }
                 {carouselType === 'smaller' 
-                    ? <JustTitle game={game} />
+                    ? <JustTitle game={game} carouselType={carouselType}/>
                     : <div className='flex carousel-card-metadata'>
                         <div className='flex-col carousel-card-metadata-left'>
                             <p className='carousel-card-title'>{game.name}</p>
@@ -110,7 +113,8 @@ const RenderGameCards = (props) => {
                         }
                     </div>
                 }
-            </div>
+            {/* </div> */}
+            </Link>
         </div>
     ))
 }
@@ -120,16 +124,20 @@ const JustTitle = (props) => (
         className='flex carousel-custom-container'
         style={{
         // if video is playing, dont hide title
-            opacity: props.hideTitle ? 0 : 1
+            opacity: props.hideTitle ? 0 : 1,
+            visibility: props.hideTitle ? 'hidden' : 'visible',
         }}
     >
         <div 
             className='flex carousel-card-metadata'
         >
-            <p 
-                className='carousel-card-title'
-            >{props.game.name}</p>
-
+            {props.carouselType === 'smaller' 
+                ? <p className='carousel-card-title'>{props.game.name}</p> 
+                : <Link
+                    className='carousel-card-title'
+                    to={`/game/${props.game.id}`}
+                >{props.game.name}</Link>
+             }
         </div>
     </div>
 )

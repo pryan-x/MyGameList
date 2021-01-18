@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../css/PageHeader.css'
+import '../../css/base/PageHeader.css'
 
 const PageHeader = (props) => (
     <div className='flex page-header'>

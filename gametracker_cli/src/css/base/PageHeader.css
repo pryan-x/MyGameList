@@ -1,14 +1,13 @@
 .page-header {
     box-sizing: border-box;
     width: 100%;
-    /* padding: 5px 10px 8px 10px; */
+
     padding: 2px 0 4px 15px;
 
     background-color: #ffd0cd;
     border-bottom: #e60012 1px solid;
 
-/* delete if header changed to outside of page-wrapper */
-    margin-bottom: 5px;
+
 }
 
 .page-name-text {

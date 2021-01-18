@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import '../../../css/TopNav.css'
+import '../../../css/nav/TopNav.css'
 
 // images
 import logoutIcon from '../../../resources/img/exit_door.svg'

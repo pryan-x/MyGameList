@@ -3,15 +3,19 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../components/screens/Home'
 
 import Logout from '../helpers/Logout'
-import Auth from '../components/screens/Auth'
+import Auth from '../components/screens/Auth.jsx'
+import GamePage from '../components/screens/GamePage.jsx'
 
 // import AuthenticatedRoute from '../helpers/AuthenticatedRoute'
 
 
+// const Routes = ({ 
+//   user, setUser, clearUser, homepageData
+// }) => (
 
 const Routes = React.memo(props => {
   const { 
-    user, setUser, clearUser, homepageData
+    user, setUser, clearUser, homepageData, handleBasePageClass
   } = props
 
 // export default React.memo = ({ 
@@ -60,6 +64,10 @@ return(
     <Route
       exact path="/logout"
       render={props => <Logout {...props} clearUser={clearUser} user={user} />}
+    />
+    <Route
+      path="/game/:gameid"
+      render={props => <GamePage {...props} handleBasePageClass={handleBasePageClass} />}
     />
   </Switch>
 

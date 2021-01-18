@@ -1,16 +1,16 @@
 import React from 'react'
 import BackgroundImage from './BackgroundImage.jsx'
-import '../../css/PageWrapper.css'
+import '../../css/base/PageWrapper.css'
 
 
 export default (props) => (
     <div className='flex page-background'>
-        {/* flex-col IMPORTANT TO FILL AREA OF MIN-HEIGHT FROM PAGE-WRAPPER */}
-        {/* <div className='flex-col page-container'> */}
+        <div className='shadow-test'></div>
         <div className='page-container'>
             {props.children}
         </div>
-    {props.backgroundImages && <BackgroundImage images={props.backgroundImages}/>}
+        <div className='shadow-test'></div>
+        {props.backgroundImages && <BackgroundImage images={props.backgroundImages}/>}
     </div>
 )
 

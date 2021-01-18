@@ -1,8 +1,8 @@
 import React from 'react'
-import TopNav from './TopNav'
+import TopNav from './TopNav.jsx'
 
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,5 +42,3 @@ class Header extends React.Component {
     )
   }
 }
-
-export default Header

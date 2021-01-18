@@ -6,7 +6,6 @@ rather than centering on height of image+metadata container */
 }
 
 
-
 /* ~~ Default Carousel Animation Shift ~~ */
 
 /* default card width: 20% */
@@ -15,14 +14,12 @@ rather than centering on height of image+metadata container */
     animation-timing-function: ease-in-out;
 
     animation-duration: .5s;
-    /* animation-duration: 5s; */
 }
 .carousel-animation-active-left.default{
     animation: shift-left;
     animation-timing-function: ease-in-out;
 
     animation-duration: .5s;
-    /* animation-duration: 5s; */
 }
 @keyframes shift-right {
     from {transform: translateX(0%)}

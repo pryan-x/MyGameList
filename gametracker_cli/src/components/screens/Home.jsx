@@ -7,7 +7,7 @@ import RankList from '../shared/Ranklist'
 import '../../css/Home.css'
 
 
-class Home extends Component {
+export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -22,16 +22,22 @@ class Home extends Component {
             // [props.homepageGames[4].name]: props.homepageGames[4],
 
             // ranklist gamelists
-            [props.homepageGames[props.homepageGames.length-3].name]: 
-                props.homepageGames[props.homepageGames.length-3],
             [props.homepageGames[props.homepageGames.length-2].name]: 
                 props.homepageGames[props.homepageGames.length-2],
+            [props.homepageGames[props.homepageGames.length-1].name]: 
+                props.homepageGames[props.homepageGames.length-1],
                 
-                // last item in array should be topGamesOfThisYear
-            topGamesOfThisYear: 
-                props.homepageGames[props.homepageGames.length-1] 
-                    ? props.homepageGames[props.homepageGames.length-1] 
-                    : null,
+            // // ranklist gamelists
+            // [props.homepageGames[props.homepageGames.length-3].name]: 
+            //     props.homepageGames[props.homepageGames.length-3],
+            // [props.homepageGames[props.homepageGames.length-2].name]: 
+            //     props.homepageGames[props.homepageGames.length-2],
+                
+            //     // last item in array should be topGamesOfThisYear
+            // topGamesOfThisYear: 
+            //     props.homepageGames[props.homepageGames.length-1] 
+            //         ? props.homepageGames[props.homepageGames.length-1] 
+            //         : null,
 
             // [props.homepageGames[props.homepageGames.length-1].name]: 
             //     props.homepageGames[props.homepageGames.length-1],
@@ -65,8 +71,8 @@ class Home extends Component {
             [this.props.homepageGames[3].name] : popularTrailers,
 
             // ranklist gamelists
-            [this.props.homepageGames[this.props.homepageGames.length-3].name] : topRatedGames,
-            [this.props.homepageGames[this.props.homepageGames.length-2].name] : topGamesOfLastYear,
+            [this.props.homepageGames[this.props.homepageGames.length-2].name] : topRatedGames,
+            [this.props.homepageGames[this.props.homepageGames.length-1].name] : topGamesOfLastYear,
             topGamesOfThisYear,
             // [this.props.homepageGames[this.props.homepageGames.length-1].name] : topGamesOfThisYear,
         } = this.state
@@ -131,6 +137,3 @@ class Home extends Component {
         )
     }
 }
-
-
-export default Home;

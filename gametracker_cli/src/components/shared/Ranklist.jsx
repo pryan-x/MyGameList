@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import '../../css/Ranklist.css'
 
 const Ranklist = (props) => {
@@ -6,8 +8,6 @@ const Ranklist = (props) => {
         listName,
         listContent
     } = props
-    console.log('in render')
-    console.log(listContent[0])
     return(
         <div className='flex-col ranklist-container'>
             <div className='flex ranklist-header-container'>
@@ -24,17 +24,20 @@ const renderListItems = (content) => (
     content.map((item, id) => (
         <div key={id} className='flex ranklist-item'>
             <p className='ranklist-rank'>{id+1}</p>
+            <Link className='ranklist-img-link' to={`/game/${item.id}`}>
             <img 
                 src={`https://images.igdb.com/igdb/image/upload/t_cover_small/${item.cover.image_id}.jpg`} 
                 // src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${item.cover.image_id}.jpg`} 
                 alt='img'
             />
+            </Link>
             <div className='flex-col ranklist-metadata'>
                 <div className='ranklist-title-wrapper'>
-
-                <p className='ranklist-title'>{item.name}</p>
+                    <Link className='ranklist-title'  to={`/game/${item.id}`}>
+                        {item.name}
+                    </Link>
                 </div>
-                <div className='ranklist-submetadata'>
+                <div className='flex-col ranklist-submetadata'>
                     <p>{formatPlatformList(item.platforms)}</p>
                     <p className='ranklist-rating'>
                         Score: {

@@ -1,14 +1,30 @@
 .carousel-caret-wrapper {
+    cursor: pointer;
     position: absolute;
     height: 50%;
     border-radius: 50%;
-    cursor: pointer;
     z-index: 1;
 
     transition: transform 0.4s ease;
 }
 
+
 /* hover styles */
+/* hardware acceleration? */
+/* .carousel-caret-wrapper.caret-left {
+    left: 0;
+    transform: translate3d(-100%,0, 0);
+}
+.carousel-caret-wrapper.caret-right {
+    right: 0;
+    transform: translate3d(100%,0, 0);
+}
+.carousel-container:hover .carousel-caret-wrapper.caret-left {
+    transform: translate3d(-60%, 0, 0);
+}
+.carousel-container:hover .carousel-caret-wrapper {
+    transform: translate3d(60%, 0, 0);
+} */
 .carousel-caret-wrapper.caret-left {
     left: 0;
     transform: translateX(-100%);
@@ -36,6 +52,8 @@
 }
 /* hover styles end */
 
+
+/* caret */
 .carousel-caret-container {
     overflow: hidden;
     height: 100%;

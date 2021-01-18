@@ -60,3 +60,7 @@ a {
 *:focus {
     outline: none;
 }
+
+html, body, #root, .App {
+	height: 100%;
+  }

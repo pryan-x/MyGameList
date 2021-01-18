@@ -1,0 +1,46 @@
+.page-background {
+  position: relative;
+  align-items: center;
+}
+.page-container {
+  position: relative;
+
+  /* VERY IMPORTANT TO KEEP SHRINKING AFTER HOMEPAGE-BACKGROUND IS NOT VISIBLE ANYMORE */
+  min-width: 0;
+  /* 100vh - footer and header height */
+  min-height: calc(100vh - 199px);
+  
+  width: 100%;
+  max-width: 1600px;
+  
+  padding: 5px 0;
+  
+  box-sizing: border-box;
+  border-color: #ebebeb;
+  border-style: solid;
+  border-width: 0 1px;
+
+  background-color: white;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,.2);
+}
+
+.page-container.gamepage-container {
+  max-width: unset;
+  border: unset;
+  box-shadow: unset;
+}
+
+
+.disable-select {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+  }
+/* .disable-drag {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+} */

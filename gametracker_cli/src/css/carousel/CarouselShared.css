@@ -13,28 +13,26 @@
 }
 
 .carousel-header-text {
+    padding-left: 15px;
+    padding-bottom: 4px;
     font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif;
     font-size: 15px;
     font-weight: 600;
-    padding-left: 15px;
-    padding-bottom: 4px;
 }
 
 .carousel-container {
-    justify-content: center;
-    width:95%;
-    height: 100%;
-    overflow: hidden;
-    max-width: 1000px;
-    /* box-shadow: inset 0 1px 10px 0 rgba(0,0,0,.3); */
     position: relative;
+    justify-content: center;
+    height: 100%;
+    width:95%;
+    max-width: 1110px;
+    overflow: hidden;
     box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
 }
 .carousel-list {
-    justify-content: center;
-    align-items: flex-end;
-    /* overflow: hidden; */
     position: relative;
+    align-items: flex-end;
+    justify-content: center;
     width: 100%;
     will-change: transform; 
 }
@@ -42,31 +40,22 @@
 
 /* ~~ shared card styles ~~ */
 .carousel-card {
-    /* max-width: 33.3333%;
-    flex: 0 0 33.3333%; */
-    max-width: 20%;
-    flex: 0 0 20%;
-    /* max-width: 18%;
-    flex: 0 0 18%; */
-    /* max-width: 20%;
-    flex: 0 0 20%; */
     position: relative;
-    padding: 8px;
-    /* margin: 8px; */
 
-    /* VERY IMPORTANT FOR ANIMATION SMOOTHNESS if using no calc */
+    flex: 0 0 20%;
+    max-width: 20%;
+
+    padding: 8px;
     box-sizing: border-box;
 }
 .carousel-card-img {
-    /* height: auto; */
     width: 100%;
-    /* min-width: 0; */
 }
 .carousel-card-img-container {
-   /* min-height: 0;  */
    justify-content: center;
 }
 .carousel-card-content-wrapper {
+    cursor: pointer;
     /* *** */
     box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.05);
     /* *** */
@@ -74,45 +63,28 @@
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
     width: 100%;
     height: 100%;
-
-    /* for twitch animation later */
-    /* min-width: 100%;
-    min-height: 100%;
-    left: 0px;
-    top: 0px;
-    position: absolute; */
-    cursor: pointer;
 }
 .carousel-card-metadata {
-    /* padding: unset; */
-    box-sizing: border-box;
-    /* padding: 6px 4px 6px 5px; */
-    padding: 6px;
-    min-height: 45px;
-    /* border: #ebebeb 1px solid;  */
-    /* border-top: #f2f1f1 1px solid; */
-    border-top:unset;
-    /* box-shadow: 0px -1px 6px -1px rgba(0, 0, 0, 0.15); */
     justify-content: space-between;
+    min-height: 45px;
+    padding: 6px;
+    box-sizing: border-box;
+    border-top:unset;
 }
 
 .carousel-card-metadata-left {
-    box-sizing: border-box;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
     min-width: 0;
     margin-right: 4px;
-
-    /* padding: 8px 4px; */
-    /* justify-content: flex-start; */
-    justify-content: space-between;
+    box-sizing: border-box;
 }
 .carousel-card-metadata-right { 
-    box-sizing: border-box;
+    align-items: center;
     height: 100%;
     width: 20%;
-    /* padding-right: ; */
-    align-items: center;
+    box-sizing: border-box;
 
 }
 .carousel-card-title {
@@ -131,15 +103,13 @@
     padding-bottom: 1px;
 }
 .carousel-card-subtitle {
+    padding-top: 1px;
     font-family: 'Inter';
     font-size: 13px;
-    /* maybe delete padding-left */
-    /* padding-left: 5px; */
-    padding-top: 1px;
     letter-spacing: .5px;
     font-weight: 300;
-    color: #7f7f7f;
     line-height: normal;
+    color: #7f7f7f;
 }
 /* overflow text fix */
 .carousel-card-title, .carousel-card-subtitle  {
@@ -151,8 +121,7 @@
 .carousel-card-rating {
     text-align: right;
     width: min-content;
-    /* padding-bottom: 5px; */
-      /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
+    /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
     /* font-family: Verdana, sans-serif; */
     font-family: 'Open Sans';
     letter-spacing: 1px;
@@ -164,13 +133,13 @@
 
 }
 .carousel-card-rating-text {
+    padding-bottom: 6px;
     font-weight: 600;
     text-align: center;
     font-size: 11px;
     /* font-family: 'Inter'; */
     font-family: 'Open Sans';
     /* font-family: 'Lucida Grande', 'Noto Sans HK', Verdana, Arial, sans-serif; */
-    padding-bottom: 6px;
 }
 
 
@@ -179,38 +148,32 @@
 .carousel-custom-container {
     /* click throughable */
     pointer-events: none;
-    /* click throughable */
 
     box-sizing: border-box;
     position: absolute;
-    /* bottom: -1px; */
     bottom: 0;
     width: inherit;
-    /* height: inherit; */
     left: 0;
 
-    transition: opacity 0.5s ease-in-out;
     padding: 8px;
 }
 .carousel-custom-container .carousel-card-metadata {
-    /* padding: unset; */
-    /* padding-bottom: 4px; */
-    padding: 0 5px 4px;
-    width: inherit;
-    height: inherit;
     align-items: flex-end;
     justify-content: center;
+    height: inherit;
+    width: inherit;
+    padding: 0 5px 4px;
+
     background-image: url(/images/gradient.png);
     background-position: left bottom;
     background-repeat: no-repeat;
-    /* background-size: 120%; */
     background-size: 100% 100%;
     min-height: 30px;
 }
 .carousel-custom-container .carousel-card-title {
-    text-align:center;
     height: unset;
-    color: white;
-    text-shadow: rgba(0,0,0,.8) 1px 1px 0;
+    text-align:center;
     font-size: 12px;
+    text-shadow: rgba(0,0,0,.8) 1px 1px 0;
+    color: white;
 }

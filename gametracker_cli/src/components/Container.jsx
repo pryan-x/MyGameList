@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import Routes from '../routes'
 import Header from './fixed/nav/Header.jsx'
 import PageHeader from './fixed/PageHeader.jsx'
-import BackgroundImage from './fixed/BackgroundImage.jsx'
-import PageWrapper from './fixed/PageWrapper.jsx'
+
 import Footer from './fixed/Footer.jsx'
 import { fetchHomepageGames } from '../services/igdbCalls'
 
-import '../css/Container.css'
+import '../css/base/Container.css'
 
 export default class Container extends Component {
   constructor() {
@@ -19,13 +18,12 @@ export default class Container extends Component {
       // default
       // imageArrLength: 30,
       imageToDisplayIndex: 0,
+
+      basePageClass: 'page-container'
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    //Really it's a deeper equality check, not just the props/state object
-    return this.props !== nextProps || this.state !== nextState;
-  }
+
 
   componentDidMount() {
     console.log('main container mounted')
@@ -50,20 +48,19 @@ export default class Container extends Component {
     }
 
     this.setState(() => {
-      const imageArr = this.makeBackgroundImageArray(resp[4].result)
+      // const imageArr = this.makeBackgroundImageArray(resp[4].result)
 
       return { 
         homepageData: resp,
-        // imageArrLength: imageArr.length,
-        backgroundImageScreenshots: imageArr,
+        // backgroundImageScreenshots: imageArr,
     }})
   }
 
-  makeBackgroundImageArray = (arr) => (
-    arr.map(game => (
-        game.artworks[0].image_id
-    ))
-  )
+  // makeBackgroundImageArray = (arr) => (
+  //   arr.map(game => (
+  //       game.artworks[0].image_id
+  //   ))
+  // )
 
   fetchUserFromStorage = () => {
     if (!this.state.user) {
@@ -87,33 +84,37 @@ export default class Container extends Component {
     console.log('user logged out')
   }
 
+
+  // this changes page-container class when game page is mounted, uses the whole width of the page remove border+shadow.
+  handleBasePageClass = (mountCheck) => {
+    console.log('arrived', mountCheck)
+    this.setState({ basePageClass: mountCheck ? 'page-container gamepage-container' : 'page-container'});
+  }
+
   render() {
     const { 
       user, 
       homepageData, 
-      backgroundImageScreenshots 
     } = this.state
-    console.log(this.state.homepageData)
+    console.log(this.state)
     return (
       <>
-        {/* <Header user={user} {...this.props} setUser={this.setUser} /> */}
         <Header user={user} setUser={this.setUser} />
-        {/* <main> */}
-          <PageWrapper backgroundImages={backgroundImageScreenshots} >
-            {/* {
-              backgroundImageScreenshots && <BackgroundImage images={backgroundImageScreenshots}/>
-            } */}
+          <div className='flex-col page-background'>
             <PageHeader pageHeader={`Welcome`}/>
-            <Routes
-              homepageData={homepageData}
-              setPageHeader={this.setPageHeader}
-              user={user}
-              setUser={this.setUser}
-              // addTrack={this.addTrack}
-              clearUser={this.clearUser}
-            />
-          </PageWrapper>
-        {/* </main> */}
+            <div className={`${this.state.basePageClass}`}>
+              <Routes
+                homepageData={homepageData}
+                setPageHeader={this.setPageHeader}
+                user={user}
+                setUser={this.setUser}
+                // addTrack={this.addTrack}
+                clearUser={this.clearUser}
+
+                handleBasePageClass={this.handleBasePageClass}
+                />
+              </div>
+          </div>
         <Footer />
       </>
     )

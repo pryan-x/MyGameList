@@ -160,8 +160,9 @@ class Carousel extends Component {
                         videoLoaded: false,
                     }
                 })
-            // for animation and carousel content change to match up, timeout has to be same timing as the keyframes timing for the shift animation
-            }, 500)
+            // for animation and carousel content change to match up, timeout has to be a little under timing as the keyframes timing for the shift animation
+            }, 475)
+            // }, 460)
             // }, 15000)
             // }, 5000)
             // }, 40000)

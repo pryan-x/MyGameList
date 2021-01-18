@@ -4,7 +4,7 @@ import { authUser } from '../../services/auth'
 import PageHeader from '../fixed/PageHeader'
 import '../../css/Auth.css'
 
-class Auth extends Component {
+export default class Auth extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -182,4 +182,3 @@ class Auth extends Component {
     }
 }
 
-export default Auth

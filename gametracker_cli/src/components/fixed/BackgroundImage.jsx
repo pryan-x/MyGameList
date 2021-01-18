@@ -9,12 +9,13 @@ export default class BackgroundImage extends Component {
 
       // default
       imageArrLength: props.images.length,
+    //   prevImage
       imageToDisplayIndex: 0,
     }
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => {
+    // this.interval = setInterval(() => {
       this.setState(prevState => {
         const randomIndex = Math.floor((Math.random() * this.state.imageArrLength))
         return { 
@@ -22,11 +23,11 @@ export default class BackgroundImage extends Component {
             ? randomIndex++ 
             : randomIndex
       }})
-    }, 10000);
+    // }, 30000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
   render() {
@@ -37,21 +38,19 @@ export default class BackgroundImage extends Component {
     console.log(images[imageToDisplayIndex])
     return (
         <div className='page-background-parallax-container'>
-            <div>
+            <div className='shadow-parallax-fix'>
+
+            </div>
+            <div className='page-background-parallax background-image-transition-animation'
+                style={{
+                    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.igdb.com/igdb/image/upload/t_original/${images[imageToDisplayIndex]}.jpg)`
+                }}>
             </div>
             <div 
-            className='page-background-parallax'
-            style={{
-                // backgroundImage: `${[setInterval(() => {
-                //     return { 
-                //       imageToDisplayIndex: randomIndex === prevState.randomIndex 
-                //         ? randomIndex++ 
-                //         : randomIndex
-                //   }})
-                // }, 10000)]}`
-                // height: '100vh',
-                backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.igdb.com/igdb/image/upload/t_original/${images[imageToDisplayIndex]}.jpg)`
-            }}
+                className='page-background-parallax background-image-transition-animation-2'
+                style={{
+                    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.igdb.com/igdb/image/upload/t_original/${images[imageToDisplayIndex]}.jpg)`
+                }}
             >
             </div>
         </div>
